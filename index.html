@@ -26,31 +26,35 @@
 
       .map-section {
         display: flex;
+        flex-wrap: wrap; /* Membuat flex items turun ke baris baru pada layar kecil */
         justify-content: space-between;
         align-items: center;
         margin-top: 20px;
       }
 
       .map-image {
-        width: 500px;
+        width: 100%; /* Mengisi lebar parent container */
+        max-width: 500px; /* Maksimum lebar gambar */
       }
 
       .description {
-        max-width: 600px;
+        max-width: 100%; /* Mengisi lebar parent container */
+        margin-top: 20px; /* Jarak antara gambar dan deskripsi */
       }
 
       .info-box {
         margin-top: 20px;
         display: flex;
+        flex-wrap: wrap; /* Membuat flex items turun ke baris baru pada layar kecil */
         justify-content: space-between;
       }
 
       .disaster-box,
       .affected-box {
-        width: 30%;
+        width: 100%; /* Mengisi lebar parent container */
         padding: 10px;
         border: 1px solid #ddd;
-        margin-right: 10px;
+        margin-bottom: 20px; /* Jarak antara box */
       }
 
       .disaster-box h2,
@@ -62,7 +66,6 @@
         height: 20px;
         width: 100%;
         margin-bottom: 5px;
-        display: inline-block;
       }
 
       .color-box p {
@@ -71,31 +74,17 @@
         text-align: center;
       }
 
-      .high-color {
-        background-color: red;
-      }
+      /* Tambahkan aturan media queries untuk layar kecil */
+      @media screen and (max-width: 600px) {
+        .map-section,
+        .info-box {
+          flex-direction: column; /* Mengubah orientasi flex menjadi kolom pada layar kecil */
+        }
 
-      .medium-color {
-        background-color: blue;
-      }
-
-      .low-color {
-        background-color: green;
-      }
-
-      .danger-color {
-        background-color: crimson;
-      }
-
-      .warning-color {
-        background-color: purple;
-      }
-      .creme-color {
-        background-color: bisque; /* Warna creme */
-      }
-
-      .caution-color {
-        background-color: yellow;
+        .disaster-box,
+        .affected-box {
+          width: 100%; /* Mengisi lebar parent container */
+        }
       }
     </style>
   </head>
